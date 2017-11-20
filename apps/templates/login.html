@@ -5,11 +5,9 @@
     <title>登录</title>
 </head>
 <body>
-<form method="post" action="./login">
-    {{ form.username() }}
-    {{ form.password() }}
-    <!--<input id="username"  type="text">-->
-    <!--<input id="password"  type="password">-->
+<form method="post" action="/login">
+    <input id="username"  type="text" name="username">
+    <input id="password"  type="password" name="password">
     <input type="submit" value="登录">
 </form>
 </body>
