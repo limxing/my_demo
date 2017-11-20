@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from flask import Blueprint, render_template, session, request,jsonify
 import time
 from apps.main.models import *
