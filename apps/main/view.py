@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+#coding=utf-8
 from flask import Blueprint, render_template, session, request,jsonify
 import time
 from apps.main.models import *
@@ -27,6 +27,7 @@ def bestwishes():
         message = request.form['message']
         user = User()
         user.username = guest
+
         user.userpassword=message
         user.creatdate = datetime.datetime.now()
         db.session.add(user)
@@ -40,6 +41,7 @@ def bestwishes():
 def namecomite():
     try:
         guest = request.form['guest']
+        print('===============',guest)
         user = User()
         user.username = guest
         user.creatdate = datetime.datetime.now()
