@@ -49,6 +49,8 @@ $(function () {
 
                     /* CALLBACK FOR SENDING EMAIL GOEAS HERE */
                     success: function (data) {
+                        var input = document.getElementById("reg-email");
+                        input.blur();
                         //Ajax connexion was a success, now handle response
                         if (data && !data.error) {
                             // Hide for if no error
@@ -57,6 +59,7 @@ $(function () {
                             $('.send_email_form .email_b').addClass('invisible');
                             $('.send_email_form .fields').addClass('invisible');
                             $('.send_email_form .email-ok').removeClass('invisible');
+
                         }
                         // Else the login credentials were invalid.
                         else {
