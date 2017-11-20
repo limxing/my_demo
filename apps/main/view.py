@@ -30,6 +30,7 @@ def login():
         return render_template("login.html",form=form)
     else:
         if form.validate():
+            print(form.username.data,form.password.data)
             user = db.session.query(User).filter_by(username=form.username.data, userpassword=form.password.data).first()
             if user == None:
                 return render_template('login.html', form=form)
