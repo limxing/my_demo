@@ -27,12 +27,10 @@ def bestwishes():
         message = request.form['message']
         user = User()
         user.username = guest
-
         user.userpassword=message
         user.creatdate = datetime.datetime.now()
         db.session.add(user)
         db.session.commit()
-        print(guest)
     except Exception as e:
         print(e)
     return '{\"success\":\"Message sent successfully\"}'
@@ -41,13 +39,11 @@ def bestwishes():
 def namecomite():
     try:
         guest = request.form['guest']
-        print('===============',guest)
         user = User()
         user.username = guest
         user.creatdate = datetime.datetime.now()
         db.session.add(user)
         db.session.commit()
-        print(guest)
     except Exception as e:
         print(e)
     return '{\"success\":\"Message sent successfully\"}'
