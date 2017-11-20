@@ -4,7 +4,7 @@ from flask_uploads import configure_uploads
 from settings import load_config
 from .core import db, migrate, ma, photos
 from apps.main.view import mod as main_mod
-
+from flask_wtf.csrf import CSRFProtect
 
 def create_app():
     # app配置
@@ -21,4 +21,6 @@ def create_app():
     ma.init_app(app)
     #上传图片配置
     configure_uploads(app, photos)
+    # flask内置的保护机制,每次请求需要带上密钥，因此关闭它，
+    # CSRFProtect(app)
     return app

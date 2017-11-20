@@ -7,7 +7,7 @@ from wtforms import SubmitField
 
 class MyForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
-    passowrd = StringField('passowrd', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired()])
 
 class UploadForm(FlaskForm):
     photo = FileField(validators=[
