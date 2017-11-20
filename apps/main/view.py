@@ -4,12 +4,51 @@ from apps.main.models import *
 from .forms import MyForm
 from apps.core import db
 from .modelschema import UserSchema
+import datetime
 
 mod = Blueprint('main', __name__, url_prefix='', template_folder='templates')
 
 @mod.route('/', methods=("post", "get"))
 def index():
     return render_template('index.html')
+
+
+@mod.route('/alluser')
+def findAllUser():
+    users = db.session.query(User).all()
+    return str(UserSchema(many=True).dumps(users).data).replace('\'','\"').replace('None','NULL')
+
+
+@mod.route('/bestwishes',methods=["POST", "GET"])
+def bestwishes():
+    try:
+        guest = request.form['name']
+        message = request.form['message']
+        user = User()
+        user.username = guest
+        user.userpassword=message
+        user.creatdate = datetime.datetime.now()
+        db.session.add(user)
+        db.session.commit()
+        print(guest)
+    except Exception as e:
+        print(e)
+    return '{\"success\":\"Message sent successfully\"}'
+
+@mod.route('/namecomite',methods=["POST", "GET"])
+def namecomite():
+    try:
+        guest = request.form['guest']
+        user = User()
+        user.username = guest
+        user.creatdate = datetime.datetime.now()
+        db.session.add(user)
+        db.session.commit()
+        print(guest)
+    except Exception as e:
+        print(e)
+    return '{\"success\":\"Message sent successfully\"}'
+
 
 @mod.route('/login' ,methods=["POST", "GET"])
 def login():
@@ -30,7 +69,7 @@ def login():
         return render_template("login.html",form=form)
     else:
         if form.validate():
-            print(form.username.data,form.password.data)
+            # print(form.username.data,form.password.data)
             user = db.session.query(User).filter_by(username=form.username.data, userpassword=form.password.data).first()
             if user == None:
                 return render_template('login.html', form=form)

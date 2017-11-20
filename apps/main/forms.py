@@ -5,6 +5,9 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 from apps.core import photos
 from wtforms import SubmitField
 
+class GuestForm(FlaskForm):
+    username = StringField('username', validators=[DataRequired()])
+
 class MyForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])

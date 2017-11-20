@@ -43,7 +43,7 @@ $(function () {
                      */
                     url: email_server_url,
                     // url: $('.send_email_form').attr('action'),
-                    type: 'get',
+                    type: 'post',
                     data: form_data,
                     dataType: 'json',
 
@@ -95,7 +95,7 @@ $(function () {
                      */
                     url: message_server_url,
                     // url: $('.send_message_form').attr('action'),
-                    type: 'get',
+                    type: 'post',
                     data: form_data,
                     dataType: 'json',
 

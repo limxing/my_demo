@@ -147,14 +147,15 @@
                 <h4 class="subhead">2018年2月23日 12:00</h4>
             </header>
             <div>
-                <form id="mail-subscription" class="form magic send_email_form" method="get"
-                      action="../static/ajaxserver/serverfile.php">
+                <form id="mail-subscription" class="form magic send_email_form" method="post"
+                      action="/namecomite">
+                    <!--action="../static/ajaxserver/serverfile.php">-->
                     <p class="invite"><br/>
                         请在下方输入到场宾客姓名我们将提前为您安排坐席：</p>
                     <div class="fields clearfix">
                         <div class="input">
                             <label for="reg-email">姓名： </label>
-                            <input id="reg-email" class="email_f" name="email" type="text" required placeholder="嘉宾姓名"
+                            <input id="reg-email" class="email_f" name="guest" type="text" required placeholder="嘉宾姓名"
                                    data-validation-type="text">
                         </div>
                         <div class="buttons">
@@ -179,14 +180,14 @@
     <div class="section page-about page page-cent" id="s-about-us">
         <section class="content">
             <!--<header class="p-title">-->
-                <!--<h3>关于我们 <i class="ion ion-android-information"> </i></h3>-->
-                <!--<h4 class="subhead">适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</h4>-->
-                <!--<h4 class="subhead">来源：<a href="http://down.admin5.com/" target="_blank">A5源码</a></h4>-->
+            <!--<h3>关于我们 <i class="ion ion-android-information"> </i></h3>-->
+            <!--<h4 class="subhead">适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</h4>-->
+            <!--<h4 class="subhead">来源：<a href="http://down.admin5.com/" target="_blank">A5源码</a></h4>-->
             <!--</header>-->
             <article class="text">
-                      <p>花径不曾缘客扫，蓬门今始为君开。　</p>
-                      <p>盘飧市远无兼味，樽酒家贫只旧醅。 </p>
-                  </article>
+                <p>花径不曾缘客扫，蓬门今始为君开。　</p>
+                <p>盘飧市远无兼味，樽酒家贫只旧醅。 </p>
+            </article>
         </section>
         <footer class="p-footer p-scrolldown"><a href="#contact">
             <div class="arrow-d">
@@ -288,7 +289,8 @@
                     <div class="wrapper">
                         <div>
                             <form class="message form send_message_form" method="get"
-                                  action="../static/ajaxserver/serverfile.php">
+                                  action="/bestwishes">
+                                  <!--action="../static/ajaxserver/serverfile.php">-->
                                 <div class="fields clearfix">
                                     <div class="input">
                                         <label for="mes-name">姓名</label>
@@ -299,10 +301,10 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="fields clearfix">
-                                    <div class="input">
+                                <div class="fields clearfix" hidden="hidden">
+                                    <div class="input" >
                                         <label for="mes-email">邮箱： </label>
-                                        <input id="mes-email" type="email" placeholder="邮箱地址" name="email" required>
+                                        <input id="mes-email" type="email" placeholder="邮箱地址" name="email" >
                                     </div>
                                 </div>
                                 <div class="fields clearfix no-border">
